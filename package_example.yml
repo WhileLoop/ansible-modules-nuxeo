@@ -1,0 +1,15 @@
+- name: nuxeo marketplace package
+  hosts: localhost
+
+  tasks:
+    - name: install nuxeo-drive
+      nuxeo_package: name=nuxeo-drive state=present
+
+    - name: check install idempotency
+      nuxeo_package: name=nuxeo-drive state=present
+
+    - name: remove nuxeo-drive
+      nuxeo_package: name=nuxeo-drive state=absent
+
+    - name: check remove idempotency
+      nuxeo_package: name=nuxeo-drive state=absent
